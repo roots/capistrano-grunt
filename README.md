@@ -54,3 +54,7 @@ after 'deploy:finalize_update', 'grunt'
 ### Tasks
 
 * `grunt`: Runs the Grunt task(s) specified in the `grunt_tasks` variable.
+
+### Configuration
+
+* `grunt_tasks`: Grunt tasks to run. Use a string for a single task or an array for multiple ones. Defaults to `default`.
