@@ -1,5 +1,4 @@
 Capistrano::Configuration.instance(true).load do
-  depend :remote, :command, 'asdf32'
   set :grunt_tasks,   'default'
   set :grunt_options, nil
 
