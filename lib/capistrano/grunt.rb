@@ -1,4 +1,5 @@
 Capistrano::Configuration.instance(true).load do
+  depend :remote, :command, 'asdf32'
   set :grunt_tasks, 'default'
 
   namespace :grunt do
