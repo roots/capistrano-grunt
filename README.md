@@ -51,6 +51,12 @@ Then add the task to your `deploy.rb`:
 after 'deploy:finalize_update', 'grunt'
 ```
 
+To set `grunt` command line options like the `Gruntfile` path, use the `grunt_options` variable:
+
+```ruby
+set :grunt_options, '--gruntfile config/Gruntfile.js'
+```
+
 ### Tasks
 
 * `grunt`: Runs the Grunt task(s) specified in the `grunt_tasks` variable.
@@ -58,3 +64,4 @@ after 'deploy:finalize_update', 'grunt'
 ### Configuration
 
 * `grunt_tasks`: Grunt tasks to run. Use a string for a single task or an array for multiple ones. Defaults to `default`.
+* `grunt_options`: Options for `grunt` command. Defaults to an empty string.
