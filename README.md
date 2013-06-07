@@ -61,6 +61,10 @@ set :grunt_options, '--gruntfile config/Gruntfile.js'
 
 * `grunt`: Runs the Grunt task(s) specified in the `grunt_tasks` variable.
 
+### Dependencies
+
+This extension also adds the `grunt` command as a Capistrano dependency. Meaning when you run cap deploy:check, it will make sure the `grunt` command exists.
+
 ### Configuration
 
 * `grunt_tasks`: Grunt tasks to run. Use a string for a single task or an array for multiple ones. Defaults to `default`.
