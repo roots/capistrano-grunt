@@ -1,7 +1,3 @@
-def bundler_loaded?
-  Gem::Specification::find_all_by_name('capistrano-bundler').any?
-end
-
 desc <<-DESC
     Run Grunt tasks. By default, it runs with no task specified, which \
     means the default Grunt task will be run. The install command is \
@@ -24,11 +20,7 @@ task :grunt do
       options << "--gruntfile #{fetch(:grunt_file)}" if fetch(:grunt_file)
       options << fetch(:grunt_tasks) if fetch(:grunt_tasks)
 
-      if bundler_loaded?
-        execute :bundle, "exec", "grunt", options
-      else
-        execute :grunt, options
-      end
+      execute :grunt, options
     end
   end
 end

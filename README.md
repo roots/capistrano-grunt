@@ -69,10 +69,6 @@ set :grunt_flags, '--no-color'
 set :grunt_roles, :all
 ```
 
-### Bundler
-
-As some Grunt plugins (`grunt-contrib-compass`, `grunt-contrib-sass`) use Ruby, the `grunt` command is executed as `bundle exec grunt` when the `capistrano-bundler` gem is included.
-
 ## Contributing
 
 1. Fork it
