@@ -1,19 +1,20 @@
-# capistrano-grunt
+# Capistrano::Grunt
 
-capistrano-grunt is a [Capistrano](https://github.com/capistrano/capistrano) extension that will let you run [Grunt](http://gruntjs.com/) tasks during your deploy process.
+This gem will let you run [Grunt](http://gruntjs.com/) tasks with Capistrano 3.x.
 
 ## Installation
 
-1. Install the Gem
+Add this line to your application's Gemfile:
 
 ```bash
-gem install capistrano-grunt
+gem 'capistrano', '~> 3.0'
+gem 'capistrano-grunt', github: 'roots/capistrano-grunt'
 ```
 
-Or if you're using Bundler, add it to your `Gemfile`:
+And then execute:
 
-```ruby
-gem 'capistrano-grunt', github: 'swalkinshaw/grunt'
+```
+$ bundle install
 ```
 
 2. Add to `Capfile` or `config/deploy.rb`:
@@ -30,42 +31,48 @@ Set what Grunt tasks you want run in your `deploy.rb` file:
 set :grunt_tasks, 'deploy:production'
 ```
 
-If you don't set `grunt_tasks`, Grunt will run its default task (equivalent to just running `grunt` from the command line).
+If you don't set `:grunt_tasks`, Grunt will run without any task specified. (equivalent to just running `grunt` from the command line).
 
-To run multiple tasks, use an array in the order you want them run:
+To run multiple tasks (can be string or array of strings):
 
 ```ruby
-set :grunt_tasks, ['deploy:production', 'cdn']
+set :grunt_tasks, 'deploy:production cdn'
+set :grunt_tasks, %w{deploy:production cdn}
 ```
 
 The above would be equivalent of running the following from the command line:
 
 ```bash
-grunt deploy:production
-grunt cdn
+grunt deploy:production cdn
 ```
 
 Then add the task to your `deploy.rb`:
 
 ```ruby
-after 'deploy:finalize_update', 'grunt'
+before :updated, 'grunt'
 ```
 
-To set `grunt` command line options like the `Gruntfile` path, use the `grunt_options` variable:
+## Configuration
+
+### Gruntfile
+
+To specify a `Gruntfile`, use the `:grunt_file` option:
 
 ```ruby
-set :grunt_options, '--gruntfile config/Gruntfile.js'
+set :grunt_file, -> { release_path.join('config/Gruntfile.js') }
 ```
 
-### Tasks
+Other configurable options are shown here with the defaults:
 
-* `grunt`: Runs the Grunt task(s) specified in the `grunt_tasks` variable.
+```ruby
+set :grunt_flags, '--no-color'
+set :grunt_roles, :all
+```
 
-### Dependencies
+## Contributing
 
-This extension also adds the `grunt` command as a Capistrano dependency. Meaning when you run cap deploy:check, it will make sure the `grunt` command exists.
-
-### Configuration
-
-* `grunt_tasks`: Grunt tasks to run. Use a string for a single task or an array for multiple ones. Defaults to `default`.
-* `grunt_options`: Options for `grunt` command. Defaults to an empty string.
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
