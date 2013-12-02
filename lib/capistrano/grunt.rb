@@ -1,1 +1,1 @@
-load File.expand_path('../tasks/grunt.cap', __FILE__)
+load File.expand_path('../tasks/grunt.rake', __FILE__)

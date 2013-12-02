@@ -54,19 +54,20 @@ before :updated, 'grunt'
 
 ## Configuration
 
-### Gruntfile
-
 To specify a `Gruntfile`, use the `:grunt_file` option:
 
 ```ruby
 set :grunt_file, -> { release_path.join('config/Gruntfile.js') }
 ```
 
-Other configurable options are shown here with the defaults:
+All configurable options are shown here with their defaults:
 
 ```ruby
+set :grunt_file, nil
+set :grunt_tasks, nil
 set :grunt_flags, '--no-color'
 set :grunt_roles, :all
+set :grunt_target_path, nil
 ```
 
 ## Contributing
