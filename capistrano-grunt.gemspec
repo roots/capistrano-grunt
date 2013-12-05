@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'capistrano-grunt'
-  spec.version       = '0.0.3'
+  spec.version       = '0.0.4'
   spec.authors       = ['Scott Walkinshaw', 'Koen Punt']
   spec.email         = ['scott.walkinshaw@gmail.com', 'me@koen.pt']
   spec.description   = %q{Grunt support for Capistrano 3.x}
