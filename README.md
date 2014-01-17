@@ -63,11 +63,11 @@ set :grunt_file, -> { release_path.join('config/Gruntfile.js') }
 Configurable options:
 
 ```ruby
-set :grunt_file, nil                                # default
-set :grunt_tasks, nil                               # default
-set :grunt_flags, '--no-color'                      # default
-set :grunt_roles, :all                              # default
-set :grunt_target_path, release_path.join('subdir') # default not set
+set :grunt_file, nil                                       # default
+set :grunt_tasks, nil                                      # default
+set :grunt_flags, '--no-color'                             # default
+set :grunt_roles, :all                                     # default
+set :grunt_target_path, -> { release_path.join('subdir') } # default not set
 ```
 
 ## Contributing
