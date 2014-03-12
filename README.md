@@ -7,7 +7,7 @@ This gem will let you run [Grunt](http://gruntjs.com/) tasks with Capistrano 3.x
 Add this line to your application's Gemfile:
 
 ```bash
-gem 'capistrano', '~> 3.0'
+gem 'capistrano', '~> 3.1'
 gem 'capistrano-grunt', github: 'roots/capistrano-grunt'
 ```
 
@@ -49,7 +49,7 @@ grunt deploy:production cdn
 Then add the task to your `deploy.rb`:
 
 ```ruby
-before :updated, 'grunt'
+before 'deploy:updated', 'grunt'
 ```
 
 ## Configuration
