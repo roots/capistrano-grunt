@@ -23,6 +23,10 @@ $ bundle install
 require 'capistrano/grunt'
 ```
 
+### npm
+
+You'll most likely want to use this gem along with [capistrano-npm](https://github.com/capistrano/npm) as you may need to run `npm install` first on every deploy. See its README for configuration options.
+
 ## Usage
 
 Set what Grunt tasks you want run in your `deploy.rb` file:
