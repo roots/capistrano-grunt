@@ -64,9 +64,16 @@ To specify a `Gruntfile`, use the `:grunt_file` option:
 set :grunt_file, -> { release_path.join('config/Gruntfile.js') }
 ```
 
+To specify a `grunt` bin location, use the `:grunt_bin` option:
+
+```ruby
+set :grunt_bin, -> { release_path.join('node_modules/grunt-cli/bin/grunt') }
+```
+
 Configurable options:
 
 ```ruby
+set :grunt_bin, :grunt                                     # default
 set :grunt_file, nil                                       # default
 set :grunt_tasks, nil                                      # default
 set :grunt_flags, '--no-color'                             # default
