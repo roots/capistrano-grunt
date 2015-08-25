@@ -5,6 +5,7 @@ desc <<-DESC
 
     You can override any of these defaults by setting the variables shown below.
 
+      set :grunt_bin, :grunt
       set :grunt_file, nil
       set :grunt_tasks, nil
       set :grunt_flags, '--no-color'
@@ -21,7 +22,7 @@ task :grunt do
       options << "--gruntfile #{fetch(:grunt_file)}" if fetch(:grunt_file)
       options << fetch(:grunt_tasks) if fetch(:grunt_tasks)
 
-      execute :grunt, options
+      execute fetch(:grunt_bin), options
     end
   end
 end
@@ -32,6 +33,7 @@ end
 
 namespace :load do
   task :defaults do
+    set :grunt_bin, :grunt
     set :grunt_file, nil
     set :grunt_tasks, nil
     set :grunt_flags, '--no-color'
