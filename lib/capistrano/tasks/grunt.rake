@@ -21,7 +21,7 @@ task :grunt do
       options << "--gruntfile #{fetch(:grunt_file)}" if fetch(:grunt_file)
       options << fetch(:grunt_tasks) if fetch(:grunt_tasks)
 
-      execute fetch(:grunt_bin), options
+      execute :grunt, options
     end
   end
 end
@@ -36,6 +36,5 @@ namespace :load do
     set :grunt_tasks, nil
     set :grunt_flags, '--no-color'
     set :grunt_roles, :all
-    set :grunt_bin, :grunt
   end
 end
